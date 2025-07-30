@@ -1,20 +1,38 @@
+<!-- ShriEduChain Phase 2 - Instructor Admin Dashboard -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ShriEduChain</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShriEduChain - Instructor Panel</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/web3@1.8.2/dist/web3.min.js"></script>
 </head>
 <body>
   <header>
-    <h1>ShriEduChain 🎓</h1>
-  </header>
-  <main>
-    <p>Connect MetaMask, upload course (PDF), and issue certificates.</p>
+    <h1>ShriEduChain 🎓 - Instructor Panel</h1>
     <button onclick="connectWallet()">🔗 Connect Wallet</button>
     <div id="status"></div>
+  </header>
+
+  <main id="dashboard" style="display:none;">
+    <section class="upload-section">
+      <h2>📄 Upload Course</h2>
+      <input type="text" id="courseTitle" placeholder="Course Title" /><br><br>
+      <input type="file" id="pdfFile" accept="application/pdf" /><br><br>
+      <button onclick="uploadCourse()">🚀 Upload to IPFS</button>
+      <div id="uploadStatus"></div>
+    </section>
+
+    <section class="cert-section">
+      <h2>🎓 Issue Certificate</h2>
+      <input type="text" id="studentAddress" placeholder="Student Wallet Address" /><br><br>
+      <input type="text" id="certCourseTitle" placeholder="Course Title" /><br><br>
+      <button onclick="issueCertificate()">✅ Mint NFT Certificate</button>
+      <div id="certStatus"></div>
+    </section>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
